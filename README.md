@@ -6,6 +6,6 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 ![github](./profile-3d-contrib/profile-green-animate.svg)
 
 
-### 🐍 GitHub Contribution Snake
+### 📊 Python Generated Contribution SVG
 
-![GitHub Snake Animation](./dist/snake.svg)
+![GitHub Contribution](./dist/contribution.svg)
