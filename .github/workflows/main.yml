@@ -1,4 +1,4 @@
-name: GitHub-Profile-3D-Contrib and Contribution Snake
+name: GitHub-Profile-3D-Contrib and Contribution SVG
 
 on:
   schedule: # 매일 자정에 실행
@@ -27,14 +27,7 @@ jobs:
         run: |
           python3 generate_contribution.py
 
-      # 4. Snake 애니메이션 생성
-      - name: Generate snake animation
-        uses: Platane/snk@v2
-        with:
-          github_user_name: eunsoA
-          outputs: dist/snake.svg
-
-      # 5. 변경 사항 커밋 및 푸시
+      # 4. 변경 사항 커밋 및 푸시
       - name: Commit & Push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -42,5 +35,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -m "Updated 3D graph and contribution snake" || echo "No changes to commit"
+          git commit -m "Updated 3D graph and contribution SVG" || echo "No changes to commit"
           git push
