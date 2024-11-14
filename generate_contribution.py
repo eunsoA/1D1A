@@ -13,18 +13,28 @@ if not TOKEN:
 # 특정 날짜 이후의 커밋만 가져오기 (예: 2024-11-04 이후)
 FILTER_DATE = "2024-11-04"
 
-# GitHub API를 사용하여 특정 레포지토리의 커밋 기록 가져오기
+# GitHub API를 사용하여 특정 레포지토리의 커밋 기록 가져오기 (페이지네이션 추가)
 def get_commit_data(username, repo):
-    url = f"https://api.github.com/repos/{username}/{repo}/commits"
-    headers = {"Authorization": f"Bearer {TOKEN}"}
-    response = requests.get(url, headers=headers)
+    commits = []
+    page = 1
 
-    if response.status_code != 200:
-        print("Error fetching commits:", response.status_code, response.text)
-        return []
+    while True:
+        url = f"https://api.github.com/repos/{username}/{repo}/commits"
+        headers = {"Authorization": f"Bearer {TOKEN}"}
+        params = {"per_page": 100, "page": page}
+        response = requests.get(url, headers=headers, params=params)
 
-    # 커밋 데이터 가져오기
-    commits = response.json()
+        if response.status_code != 200:
+            print("Error fetching commits:", response.status_code, response.text)
+            break
+
+        data = response.json()
+        if not data:
+            break
+
+        # 커밋 데이터 추가
+        commits.extend(data)
+        page += 1
 
     # 특정 날짜 이후의 커밋만 필터링
     filtered_commits = []
@@ -44,12 +54,12 @@ def generate_svg(commit_data):
     <svg width="600" height="200" xmlns="http://www.w3.org/2000/svg">
         <rect width="100%" height="100%" fill="white"/>
         <text x="10" y="20" font-family="Arial" font-size="16" fill="black">
-            Commit history for {REPO} repository since {FILTER_DATE}
+            Commit history for [ {REPO} ] repository since {FILTER_DATE}
         </text>
     """
     y_pos = 40
     for date in sorted(set(commit_dates)):
-        svg_content += f'<text x="10" y="{y_pos}" font-family="Arial" font-size="14" fill="green">{date}</text>\n'
+        svg_content += f'<text x="10" y="{y_pos}" font-family="Arial" font-size="14" fill="green">✅ {date}</text>\n'
         y_pos += 20
 
     svg_content += "</svg>"
