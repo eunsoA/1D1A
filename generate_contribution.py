@@ -17,7 +17,11 @@ def get_commit_data(username, repo):
         print("Error fetching commits:", response.status_code, response.text)
         return []
 
-    return response.json()
+    # 특정 레포지토리만 필터링
+    commits = response.json()
+    filtered_commits = [commit for commit in commits if commit["repository"]["full_name"] == f"{username}/{repo}"]
+    return filtered_commits
+
 
 # 커밋 기록을 분석하여 기여도를 시각화할 데이터 생성
 def generate_svg(commit_data):
