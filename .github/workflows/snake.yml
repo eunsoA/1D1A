@@ -11,15 +11,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      
+
       - name: Create dist directory
         run: mkdir -p dist
 
       - name: Generate snake animation
         uses: Platane/snk@v2
+        env:
+          GITHUB_USER_NAME: eunsoA
         with:
-          github_user_name: eunsoA
+          github_user_name: ${{ env.GITHUB_USER_NAME }}
           outputs: dist/snake.svg
+
+      - name: Check if snake.svg exists
+        run: |
+          if [ -f dist/snake.svg ]; then echo "snake.svg created"; else echo "snake.svg not found"; exit 1; fi
 
       - name: Commit and push changes
         env:
