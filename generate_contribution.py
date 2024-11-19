@@ -51,7 +51,7 @@ def generate_svg(commit_data):
 
     # SVG 파일 생성
     svg_content = f"""
-    <svg width="600" height="200" xmlns="http://www.w3.org/2000/svg">
+    <svg width="600" height="800" xmlns="http://www.w3.org/2000/svg">
         <rect width="100%" height="100%" fill="white"/>
         <text x="10" y="20" font-family="Arial" font-size="16" fill="black">
             Commit history for [ {REPO} ] repository since {FILTER_DATE}
