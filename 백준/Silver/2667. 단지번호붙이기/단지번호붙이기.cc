@@ -4,59 +4,56 @@
 
 using namespace std;
 
-int dp(vector<vector<int>> &D, vector<vector<int>> &V, int i, int j, int N) {
-    V[i][j] = 1; // 방문 처리
-    int count = 1;
+int N;
+vector<vector<int>> map;
+vector<vector<bool>> visited;
+int dx[] = {-1,1,0,0};
+int dy[] = {0,0,-1,1};
 
-    // 상하좌우 탐색
-    if ((i - 1) >= 0 && D[i - 1][j] == 1 && V[i - 1][j] == 0) { // up
-        count += dp(D, V, i - 1, j, N);
-    }
-    if ((j + 1) < N && D[i][j + 1] == 1 && V[i][j + 1] == 0) { // right
-        count += dp(D, V, i, j + 1, N);
-    }
-    if ((i + 1) < N && D[i + 1][j] == 1 && V[i + 1][j] == 0) { // down
-        count += dp(D, V, i + 1, j, N);
-    }
-    if ((j - 1) >= 0 && D[i][j - 1] == 1 && V[i][j - 1] == 0) { // left
-        count += dp(D, V, i, j - 1, N);
-    }
+int dfs(int x, int y){
+    visited[x][y] = true;
+    int count =1;
+    for(int i=0; i<4; i++){
+        int nx = x + dx[i];
+        int ny = y + dy[i];
 
+        if(nx>=0 && nx<N && ny>=0 && ny < N){
+            if(map[nx][ny]==1 && !visited[nx][ny]){
+                count += dfs(nx, ny);
+            }
+        }
+    }
     return count;
 }
 
-int main() {
-    int N;
+
+int main(void){
     cin >> N;
+    map.resize(N, vector<int> (N));
+    visited.resize(N, vector<bool> (N, false));
 
-    vector<vector<int>> D(N, vector<int>(N));
-    vector<vector<int>> V(N, vector<int>(N, 0)); // 방문 여부 초기화
-    vector<int> answer;
-
-    // 행렬 입력
-    for (int i = 0; i < N; i++) {
-        string row;
-        cin >> row;
-        
-        for (int j = 0; j < N; j++) {
-            D[i][j] = row[j] - '0'; //문자를 숫자로 변환
+    //input
+    for(int i=0; i<N; i++){
+        for(int j=0; j<N; j++){
+            char c;
+            cin >> c;
+            map[i][j] = c-'0';
         }
     }
+    vector<int> answers;
 
-    // 단지 탐색
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            if (D[i][j] == 1 && V[i][j] == 0) {
-                answer.push_back(dp(D, V, i, j, N));
+    for(int i=0; i<N; i++){
+        for(int j=0;j<N; j++){
+            if(map[i][j]==1 && !visited[i][j]){
+                answers.push_back(dfs(i,j));
             }
         }
     }
 
-    // 결과 출력
-    cout << answer.size() << "\n";
-    sort(answer.begin(), answer.end());
-    for (int count : answer) {
-        cout << count << "\n";
+    sort(answers.begin(), answers.end());
+    cout << answers.size() << '\n';
+    for(int ans : answers){
+        cout << ans << '\n';
     }
     return 0;
 }
