@@ -21,7 +21,7 @@ jobs:
           USERNAME: ${{ github.repository_owner }}
 
       # 3. Python 스크립트를 사용해 기여도 시각화(SVG 파일 생성)
-      - name: Generate Contribution SVG using Python script
+      - name: Commit history for [1D1A] repository since '2024-11-04'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
