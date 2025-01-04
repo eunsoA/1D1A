@@ -4,8 +4,13 @@
 using namespace std;
 
 int main(void) {
-    string str;
-    cin >> str;
-    cout << str << "\n";
+    while(1){
+        int A, B;
+        cin >> A >> B;
+        if(A == 0 && B == 0){
+            return 0;
+        }
+        cout << A+B <<"\n";
+    }
     return 0;
 }
