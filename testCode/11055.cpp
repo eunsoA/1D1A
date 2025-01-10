@@ -12,7 +12,7 @@ int main(void){
     cin >> N;
 
     vector<int> arr(N, 0);
-    vector<int> dp(N, 1); // DP 배열 초기화: 각 원소는 길이 1의 부분 수열
+    vector<int> dp(N, 1); // DP 배열 초기화
 
     // 입력
     for (int i = 0; i < N; i++) {
