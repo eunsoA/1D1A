@@ -1,7 +1,7 @@
 import sys
 from collections import Counter
 
-word = input().upper()
+word = sys.stdin.read().strip().upper()
 count = Counter(word) # 각 문자의 빈도수 계산
 
 most_common = count.most_common() # 빈도수 내림차순 정렬된 리스트 반환
