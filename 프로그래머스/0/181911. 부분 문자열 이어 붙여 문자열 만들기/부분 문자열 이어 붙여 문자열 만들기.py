@@ -1,7 +1,5 @@
 def solution(my_strings, parts):
     answer = ''
-    for i in range(len(my_strings)):
-        s, e = parts[i]
-        mystr = my_strings[i]
-        answer += mystr[s:e+1]
+    for i, (s,e) in enumerate(parts):
+        answer += my_strings[i][s:e+1]
     return answer
