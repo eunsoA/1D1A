@@ -1,12 +1,7 @@
 def solution(arr, n):
-    if len(arr) % 2 : # odd
-        for i in range(len(arr)):
-            if i%2==0 :
-                arr[i] += n
-        # arr[::2] += n
+    N = len(arr)
+    if N % 2 : # odd
+        for i in range(0,N,2): arr[i] += n
     else : # even
-        for i in range(len(arr)):
-            if i%2==1 :
-                arr[i] += n
-        # arr[1::2] += n
+        for i in range(1,N,2): arr[i] += n
     return arr
