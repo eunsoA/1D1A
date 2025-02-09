@@ -1,11 +1,12 @@
 def solution(arr):
-    row_count = len(arr)
-    col_count = len(arr[0])
-    
-    if row_count > col_count:
-        for i in range(len(arr)):
-            arr[i] += [0] * (row_count - col_count)
-    elif row_count < col_count:
-        arr += [[0] * col_count]*(col_count - row_count)
-    
+    row=len(arr)
+    col=len(arr[0])
+    if row>col:
+        for i in range(row):
+            for j in range(row-col):
+                arr[i].append(0)
+    elif col > row:
+        for i in range(col-row):
+            arr.append([0]*col)
+
     return arr
