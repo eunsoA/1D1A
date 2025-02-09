@@ -13,4 +13,3 @@ while i <= len(docs)-len(word) :
         i += 1
 
 print(count)
-# 제출못함
