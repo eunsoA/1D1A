@@ -1,18 +1,9 @@
 import sys
 
-N, M = sys.stdin.readline().strip().split(' ')
+N, M = map(int, sys.stdin.readline().split())
 
-S = list()
-T = list()
-for i in range(int(N)):
-    S.append(sys.stdin.readline().strip())
+S = {sys.stdin.readline().strip() for _ in range(N)}
 
-for j in range(int(M)):
-    T.append(sys.stdin.readline().strip())
-
-count = 0
-for word in T:
-    if word in S :
-        count += 1
+count = sum(1 for _ in range(M) if sys.stdin.readline().strip() in S)
 
 print(count)
