@@ -1,10 +1,8 @@
 def solution(arr, flag):
     answer = []
-    for i,f in enumerate(flag):
+    for i,f in zip(arr,flag):
         if f:
-            for _ in range(arr[i]*2):
-                answer.append(arr[i]) 
+            answer += [i] * i * 2
         else :
-            for _ in range(arr[i]):
-                answer.pop() 
+            answer = answer[:-i] 
     return answer
