@@ -1,6 +1,7 @@
 name: Move LeetCode Solutions
 
 on:
+  workflow_dispatch:  # 수동 실행 가능하도록 추가
   push:
     paths:
       - '*.cpp'
