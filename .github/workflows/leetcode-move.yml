@@ -1,15 +1,10 @@
 name: Move LeetCode Solutions
 
 on:
-  workflow_dispatch:  # 수동 실행 가능하도록 추가
+  workflow_dispatch:  # 수동 실행 옵션 유지
   push:
     paths:
-      - '*.cpp'
-      - '*.java'
-      - '*.py'
-      - '*.js'
-      - '*.ts'
-      # LeetHub가 생성하는 파일 패턴에 맞춰 추가
+      - '[0-9][0-9][0-9][0-9]-*/**'  # LeetHub가 생성하는 폴더 패턴 (예: 0020-valid-parentheses)
 
 jobs:
   move-files:
@@ -23,16 +18,11 @@ jobs:
           # LeetCode 폴더가 없다면 생성
           mkdir -p LeetCode
           
-          # 루트 디렉토리의 코드 파일들을 LeetCode 폴더로 이동
-          for ext in cpp java py js ts; do
-            find . -maxdepth 1 -type f -name "*.$ext" -exec sh -c '
-              for file do
-                # README.md나 특정 파일들은 제외
-                if [[ $(basename "$file") != "README.md" && "$file" != "./generate_contribution.py" ]]; then
-                  mv "$file" "LeetCode/"
-                fi
-              done
-            ' sh {} +
+          # LeetHub가 생성한 폴더들을 LeetCode 폴더로 이동
+          for d in [0-9][0-9][0-9][0-9]-*; do
+            if [ -d "$d" ]; then
+              mv "$d" "LeetCode/"
+            fi
           done
 
       - name: Commit & Push changes
