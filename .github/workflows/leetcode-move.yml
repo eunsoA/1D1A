@@ -1,0 +1,43 @@
+name: Move LeetCode Solutions
+
+on:
+  push:
+    paths:
+      - '*.cpp'
+      - '*.java'
+      - '*.py'
+      - '*.js'
+      - '*.ts'
+      # LeetHub가 생성하는 파일 패턴에 맞춰 추가
+
+jobs:
+  move-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Move LeetCode solutions
+        run: |
+          # LeetCode 폴더가 없다면 생성
+          mkdir -p LeetCode
+          
+          # 루트 디렉토리의 코드 파일들을 LeetCode 폴더로 이동
+          for ext in cpp java py js ts; do
+            find . -maxdepth 1 -type f -name "*.$ext" -exec sh -c '
+              for file do
+                # README.md나 특정 파일들은 제외
+                if [[ $(basename "$file") != "README.md" && "$file" != "./generate_contribution.py" ]]; then
+                  mv "$file" "LeetCode/"
+                fi
+              done
+            ' sh {} +
+          done
+
+      - name: Commit & Push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m "chore: Move LeetCode solutions to LeetCode folder" || echo "No changes to commit"
+          git push 
