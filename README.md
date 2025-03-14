@@ -21,11 +21,13 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/eunsoA/1D1A/tree/master/0001-two-sum) |
+| [0242-valid-anagram](https://github.com/eunsoA/1D1A/tree/master/0242-valid-anagram) |
 ## String
 |  |
 | ------- |
 | [0020-valid-parentheses](https://github.com/eunsoA/1D1A/tree/master/0020-valid-parentheses) |
 | [0125-valid-palindrome](https://github.com/eunsoA/1D1A/tree/master/0125-valid-palindrome) |
+| [0242-valid-anagram](https://github.com/eunsoA/1D1A/tree/master/0242-valid-anagram) |
 ## Stack
 |  |
 | ------- |
@@ -62,4 +64,8 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 |  |
 | ------- |
 | [0226-invert-binary-tree](https://github.com/eunsoA/1D1A/tree/master/0226-invert-binary-tree) |
+## Sorting
+|  |
+| ------- |
+| [0242-valid-anagram](https://github.com/eunsoA/1D1A/tree/master/0242-valid-anagram) |
 <!---LeetCode Topics End-->
