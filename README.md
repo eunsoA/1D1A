@@ -17,6 +17,7 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 | ------- |
 | [0001-two-sum](https://github.com/eunsoA/1D1A/tree/master/0001-two-sum) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/eunsoA/1D1A/tree/master/0121-best-time-to-buy-and-sell-stock) |
+| [0792-binary-search](https://github.com/eunsoA/1D1A/tree/master/0792-binary-search) |
 ## Hash Table
 |  |
 | ------- |
@@ -68,4 +69,8 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 |  |
 | ------- |
 | [0242-valid-anagram](https://github.com/eunsoA/1D1A/tree/master/0242-valid-anagram) |
+## Binary Search
+|  |
+| ------- |
+| [0792-binary-search](https://github.com/eunsoA/1D1A/tree/master/0792-binary-search) |
 <!---LeetCode Topics End-->
