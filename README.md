@@ -53,11 +53,13 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 ## Tree
 |  |
 | ------- |
+| [0110-balanced-binary-tree](https://github.com/eunsoA/1D1A/tree/master/0110-balanced-binary-tree) |
 | [0226-invert-binary-tree](https://github.com/eunsoA/1D1A/tree/master/0226-invert-binary-tree) |
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/eunsoA/1D1A/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
 ## Depth-First Search
 |  |
 | ------- |
+| [0110-balanced-binary-tree](https://github.com/eunsoA/1D1A/tree/master/0110-balanced-binary-tree) |
 | [0226-invert-binary-tree](https://github.com/eunsoA/1D1A/tree/master/0226-invert-binary-tree) |
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/eunsoA/1D1A/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
 | [0733-flood-fill](https://github.com/eunsoA/1D1A/tree/master/0733-flood-fill) |
@@ -69,6 +71,7 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 ## Binary Tree
 |  |
 | ------- |
+| [0110-balanced-binary-tree](https://github.com/eunsoA/1D1A/tree/master/0110-balanced-binary-tree) |
 | [0226-invert-binary-tree](https://github.com/eunsoA/1D1A/tree/master/0226-invert-binary-tree) |
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/eunsoA/1D1A/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
 ## Sorting
