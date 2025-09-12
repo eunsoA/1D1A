@@ -1,5 +1,6 @@
 function solution(s) {
-  var strLength = s.length;
+  var strLengthArr = [];
+  strLengthArr.push(s.length);
 
   // 1부터 s.length /2 까지 split 하고 압축 후 최소 길이 찾기
   for (let splitLength = 1; splitLength <= s.length / 2; splitLength++) {
@@ -18,7 +19,7 @@ function solution(s) {
     }
     splitStr += (count > 1 ? count : '') + prvStr;
 
-    strLength = Math.min(strLength, splitStr.length);
+    strLengthArr.push(splitStr.length);
   }
-  return strLength;
+  return Math.min(...strLengthArr);
 }
